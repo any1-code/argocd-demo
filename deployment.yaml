@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-demo-app
+  namespace: default
+  labels:
+    app: gitops-demo
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitops-demo
+  template:
+    metadata:
+      labels:
+        app: gitops-demo
+        version: v1
+    spec:
+      containers:
+      - name: alpine
+        image: alpine:latest
+        command: ["sh", "-c", "echo 'Running version v1' && sleep 3600"]
