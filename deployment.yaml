@@ -5,7 +5,7 @@ metadata:
   namespace: default
   labels:
     app: gitops-demo
-    version: v1
+    version: v2
 spec:
   replicas: 1
   selector:
@@ -15,9 +15,9 @@ spec:
     metadata:
       labels:
         app: gitops-demo
-        version: v1
+        version: v2
     spec:
       containers:
       - name: alpine
         image: alpine:latest
-        command: ["sh", "-c", "echo 'Running version v1' && sleep 3600"]
+        command: ["sh", "-c", "echo 'Running version v2' && sleep 3600"]
